@@ -11,8 +11,10 @@ branches:
 
 addons:
   apt:
+    sources:
+    - sourceline: 'ppa:team-xbmc/ppa'
     packages:
-    - nlohmann-json-dev
+    - nlohmann-json3-dev
 
 before_script:
 - git clone https://github.com/Sheridan/cpptoolslib.git
