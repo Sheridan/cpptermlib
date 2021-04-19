@@ -9,6 +9,11 @@ branches:
   only:
   - master
 
+addons:
+  apt:
+    packages:
+    - nlohmann-json-dev
+
 before_script:
 - git clone https://github.com/Sheridan/cpptoolslib.git
 - cd cpptoolslib
