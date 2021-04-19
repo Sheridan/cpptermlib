@@ -1,0 +1,31 @@
+language: cpp
+sudo: required
+dist: bionic
+compiler:
+- gcc
+os:
+- linux
+branches:
+  only:
+  - master
+
+before_script:
+- git clone https://github.com/Sheridan/cpptoolslib.git
+- cd cpptoolslib
+- make release
+- make install_release
+- cd ..
+- git clone https://github.com/Sheridan/loggerlib.git
+- cd loggerlib
+- make release
+- make install_release
+- cd ..
+script:
+- make debug
+
+notifications:
+  email:
+    recipients:
+    - gorlov.maxim@gmail.com
+    on_success: change
+    on_failure: always

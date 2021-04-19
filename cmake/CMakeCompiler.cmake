@@ -1,0 +1,16 @@
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+option(USE_CLANG "build application with clang" OFF)
+
+if(USE_CLANG)
+  message(STATUS "Build with clang" )
+  set(CMAKE_C_COMPILER clang)
+  set(CMAKE_CXX_COMPILER clang++)
+  set(USE_GCC OFF)
+else(USE_CLANG)
+  message(STATUS "Build with gcc")
+  set(CMAKE_C_COMPILER gcc)
+  set(CMAKE_CXX_COMPILER g++)
+endif(USE_CLANG)

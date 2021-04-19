@@ -1,0 +1,141 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"launch": {
+			"version": "0.2.0",
+			"configurations": [
+				{
+					"name": "Make release",
+					"type": "cppdbg",
+					"request": "launch",
+					"program": "/usr/bin/make",
+					"args": [
+						"release"
+					],
+					"cwd": "${workspaceFolder}",
+					"environment": [],
+					"externalConsole": false,
+					"logging": {
+						"moduleLoad": false,
+						"trace": true
+					}
+				},
+				{
+					"name": "Make debug",
+					"type": "cppdbg",
+					"request": "launch",
+					"program": "/usr/bin/make",
+					"args": [
+						"debug"
+					],
+					"cwd": "${workspaceFolder}",
+					"environment": [],
+					"externalConsole": false,
+					"logging": {
+						"moduleLoad": false,
+						"trace": true
+					}
+				}
+			]
+		},
+		"files.associations": {
+			"setup-environment": "perl",
+			"*.yaml": "ansible",
+			"*.j2": "jinja",
+			"*.sh.j2": "jinja-shell",
+			"*.ps.j2": "powershell",
+			"cctype": "cpp",
+			"clocale": "cpp",
+			"cmath": "cpp",
+			"csignal": "cpp",
+			"cstdarg": "cpp",
+			"cstddef": "cpp",
+			"cstdio": "cpp",
+			"cstdlib": "cpp",
+			"cstring": "cpp",
+			"ctime": "cpp",
+			"cwchar": "cpp",
+			"cwctype": "cpp",
+			"condition_variable": "cpp",
+			"thread": "cpp",
+			"any": "cpp",
+			"array": "cpp",
+			"atomic": "cpp",
+			"hash_map": "cpp",
+			"strstream": "cpp",
+			"bit": "cpp",
+			"*.tcc": "cpp",
+			"bitset": "cpp",
+			"chrono": "cpp",
+			"cinttypes": "cpp",
+			"codecvt": "cpp",
+			"compare": "cpp",
+			"complex": "cpp",
+			"concepts": "cpp",
+			"cstdint": "cpp",
+			"deque": "cpp",
+			"forward_list": "cpp",
+			"list": "cpp",
+			"map": "cpp",
+			"set": "cpp",
+			"unordered_map": "cpp",
+			"unordered_set": "cpp",
+			"vector": "cpp",
+			"exception": "cpp",
+			"algorithm": "cpp",
+			"functional": "cpp",
+			"iterator": "cpp",
+			"memory": "cpp",
+			"memory_resource": "cpp",
+			"numeric": "cpp",
+			"optional": "cpp",
+			"random": "cpp",
+			"ratio": "cpp",
+			"string": "cpp",
+			"string_view": "cpp",
+			"system_error": "cpp",
+			"tuple": "cpp",
+			"type_traits": "cpp",
+			"utility": "cpp",
+			"fstream": "cpp",
+			"initializer_list": "cpp",
+			"iomanip": "cpp",
+			"iosfwd": "cpp",
+			"iostream": "cpp",
+			"istream": "cpp",
+			"limits": "cpp",
+			"mutex": "cpp",
+			"new": "cpp",
+			"ostream": "cpp",
+			"ranges": "cpp",
+			"span": "cpp",
+			"sstream": "cpp",
+			"stdexcept": "cpp",
+			"stop_token": "cpp",
+			"streambuf": "cpp",
+			"cfenv": "cpp",
+			"typeindex": "cpp",
+			"typeinfo": "cpp",
+			"valarray": "cpp",
+			"variant": "cpp",
+			"*.ipp": "cpp"
+    },
+    "editor.tabSize": 2,
+    "editor.detectIndentation": false
+	},
+	"extensions": {
+		"recommendations": [
+			"ms-vscode.cpptools",
+			"jbenden.c-cpp-flylint",
+			"hars.cppsnippets",
+			"wlhe.c-cpp-snippets",
+			"twxs.cmake",
+			"ms-vscode.cmake-tools",
+			"zainchen.json"
+		]
+	}
+}
