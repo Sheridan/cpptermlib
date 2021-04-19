@@ -1,5 +1,6 @@
 project(cpptermlib)
 cmake_minimum_required(VERSION 3.9)
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/modules/")
 
 option(BUILD_TEST_APP "Build test application" OFF)
 
