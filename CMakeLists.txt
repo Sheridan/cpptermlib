@@ -1,6 +1,6 @@
 project(cpptermlib)
 cmake_minimum_required(VERSION 3.9)
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/modules/")
+# set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/modules/")
 
 option(BUILD_TEST_APP "Build test application" OFF)
 
@@ -8,7 +8,15 @@ include(cmake/CMakeCompiler.cmake)
 include(cmake/CMakeDebug.cmake)
 include(cmake/CMakeStrings.cmake)
 
-find_package(nlohmann_json REQUIRED)
+find_path(NJSON_INCLUDES_DIR
+    NAMES json.hpp
+    HINTS /usr/include/nlohmann
+          /usr/include
+    DOC "The nlohmann::json include directory"
+)
+message(STATUS "nlohmann::json include dir : ${NJSON_INCLUDES_DIR}")
+
+# find_package(nlohmann_json REQUIRED)
 
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
@@ -66,10 +74,10 @@ set(CPPTERMLIB_SOURCES
 
 set(CPPTERMLIB_LIBRARYES cpptools
                          logger
-                         stdc++fs
-                         nlohmann_json::nlohmann_json)
+                         stdc++fs)
 
 add_library(cppterm SHARED
+            ${NJSON_INCLUDES_DIR}
             ${CPPTERMLIB_HEADERS}
             ${CPPTERMLIB_SOURCES})
 target_link_libraries(cppterm PUBLIC ${CPPTERMLIB_LIBRARYES})
