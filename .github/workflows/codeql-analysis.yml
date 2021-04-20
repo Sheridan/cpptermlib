@@ -39,6 +39,7 @@ jobs:
         make release
         make install_release
         cd ..
+      working-directory: /tmp
 
     - name: Build loggerlib
       run: |
@@ -47,6 +48,7 @@ jobs:
         make release
         make install_release
         cd ..
+      working-directory: /tmp
 
     - name: Build
       run: |
