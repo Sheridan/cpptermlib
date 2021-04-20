@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 #include <queue>
-#include <nlohmann/json.hpp>
+#include <json/value.h>
 
 namespace ct
 {
@@ -14,13 +14,13 @@ class CJson
 public:
   CJson(std::queue<std::string> files);
   virtual ~CJson();
-  nlohmann::json::reference operator[](const std::string &name);
+  Json::Value &operator[](const std::string &name);
 
 protected:
   static std::queue<std::string> optionsFilesList(const std::string &suffix);
 
 private:
-  nlohmann::json m_json;
+  Json::Value m_root;
   void appendFile(const std::string &filename);
 };
 }

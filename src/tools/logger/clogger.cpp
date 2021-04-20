@@ -24,8 +24,8 @@ CLogger::~CLogger()
 
 void CLogger::applyOptions()
 {
-  setPath(CT_OPTIONS["logging"].value("path", CT_APP->currentUser()->home()));
-  std::string logLevel = CT_OPTIONS["logging"].value("level", "debug");
+  setPath(CT_OPTIONS["logging"].get("path", CT_APP->currentUser()->home()).asString());
+  std::string logLevel = CT_OPTIONS["logging"].get("level", "debug").asString();
   if CT_IFLOGLEVEL(debug)
     else if CT_IFLOGLEVEL(info)
       else if CT_IFLOGLEVEL(warning)

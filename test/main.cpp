@@ -4,8 +4,7 @@
 int main(void)
 {
   ct::CApplication *app = new ct::CApplication("test");
-  // app->terminal()->clear();
-  CT_LOG_DBG(CT_OPTIONS["logging"].value("test", "test123"));
+  CT_LOG_NFO(CT_OPTIONS["logging"].get("level", "debug").asString());
 
   ct::widgets::WWidget *w = new ct::widgets::WWidget(ct::primitives::CCoordinate(10, 10), ct::primitives::CSize(10, 10));
   w->draw();
