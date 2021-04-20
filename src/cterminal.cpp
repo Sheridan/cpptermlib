@@ -12,6 +12,7 @@ namespace ct
 {
 
 CTerminal::CTerminal()
+  : m_terminalColors(16)
 {
   update();
 }
@@ -32,16 +33,13 @@ void CTerminal::clear() const
 void CTerminal::update()
 {
   mineTerminalSize();
-  clear();
-}
-
-void CTerminal::moveCursor(const ct::primitives::CCoordinate &coordinate)
-{
-
+  mineTerminalColors();
+  // clear();
 }
 
 void CTerminal::mineTerminalSize()
 {
+  //TODO: SIGWINCH when termsize changed
   struct winsize ws;
   if(ioctl(1, TIOCGWINSZ, &ws))
   {
@@ -49,6 +47,14 @@ void CTerminal::mineTerminalSize()
   }
   m_terminalSize = ct::primitives::CSize(ws.ws_col, ws.ws_row);
   CT_LOG_DBG("Terminal resized to " << m_terminalSize);
+}
+
+void CTerminal::mineTerminalColors()
+{
+//   char buffer[4];
+//   // std::string result = "";
+//   std::cin.read(buffer, 4);
+//   CT_LOG_DBG(buffer);
 }
 
 }

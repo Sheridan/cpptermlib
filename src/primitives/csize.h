@@ -17,6 +17,12 @@ public:
   const ct::type::TSize      height() const;
   const ct::type::TSizeCount count()  const;
 
+  void srink(const ct::type::TSize &delta);
+  void grow (const ct::type::TSize &delta);
+
+  CSize srinked(const ct::type::TSize &delta) const;
+  CSize growed (const ct::type::TSize &delta) const;
+
 private:
   ct::type::TSize m_width;
   ct::type::TSize m_height;

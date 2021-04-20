@@ -14,10 +14,11 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 include_directories(${JSONCPP_INCLUDE_DIR}
                     src
+                    src/control
                     src/defines
                     src/io
+                    src/layouts
                     src/primitives
-                    src/control
                     src/tools
                     src/tools/logger
                     src/tools/options
@@ -29,6 +30,8 @@ set(CPPTERMLIB_HEADERS
     src/control/ccontrolcode.h
     src/control/ccontrolcodes.h
     src/control/ccontrolstring.h
+    src/control/cdynamiccontrolcode.h
+    src/control/cstaticcontrolcode.h
     src/cpptermlib.h
     src/cterminal.h
     src/defines/liblog.h
@@ -36,33 +39,37 @@ set(CPPTERMLIB_HEADERS
     src/defines/terminal_codes.h
     src/defines/types.h
     src/io/cbuffer.h
+    src/layouts/llayout.h
     src/primitives/ccoordinate.h
     src/primitives/csize.h
     src/tools/logger/clogger.h
     src/tools/options/cjson.h
     src/tools/options/coptions.h
     src/tools/options/ctheme.h
-    src/widgets/cwidget.h
-    src/control/cstaticcontrolcode.h
-    src/control/cdynamiccontrolcode.h
+    src/widgets/wwidget.h
+    src/widgets/wpanel.h
+    src/defines/exceptions.h
     )
+
 set(CPPTERMLIB_SOURCES
     src/capplication.cpp
     src/control/ccontrolcode.cpp
     src/control/ccontrolcodes.cpp
     src/control/ccontrolstring.cpp
+    src/control/cdynamiccontrolcode.cpp
+    src/control/cstaticcontrolcode.cpp
     src/cpptermlib.cpp
     src/cterminal.cpp
     src/io/cbuffer.cpp
+    src/layouts/llayout.cpp
     src/primitives/ccoordinate.cpp
     src/primitives/csize.cpp
     src/tools/logger/clogger.cpp
     src/tools/options/cjson.cpp
     src/tools/options/coptions.cpp
     src/tools/options/ctheme.cpp
-    src/widgets/cwidget.cpp
-    src/control/cstaticcontrolcode.cpp
-    src/control/cdynamiccontrolcode.cpp
+    src/widgets/wwidget.cpp
+    src/widgets/wpanel.cpp
     )
 
 set(CPPTERMLIB_LIBRARYES cpptools

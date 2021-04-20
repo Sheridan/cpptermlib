@@ -4,13 +4,19 @@
 
 namespace ct
 {
+
+namespace layouts
+{
+class LLayout;
+}
+
 namespace widgets
 {
 class WWidget
 {
 public:
-  WWidget();
-  WWidget(const ct::primitives::CCoordinate &topLeft, const ct::primitives::CSize &size);
+  WWidget(ct::widgets::WWidget *m_parent = nullptr);
+  WWidget(const ct::primitives::CCoordinate &topLeft, const ct::primitives::CSize &size, ct::widgets::WWidget *m_parent = nullptr);
   virtual ~WWidget();
 
   const ct::primitives::CSize       *size();
@@ -22,12 +28,18 @@ public:
   void resize(const ct::primitives::CSize &size);
   void draw();
 
+  void setLayout(ct::layouts::LLayout *layout);
+  virtual ct::primitives::CSize clientCanvasSize();
+
 private:
   ct::primitives::CCoordinate *m_topLeft;
   ct::primitives::CCoordinate *m_topRight;
   ct::primitives::CCoordinate *m_bottomLeft;
   ct::primitives::CCoordinate *m_bottomRight;
   ct::primitives::CSize       *m_size;
+
+  ct::widgets::WWidget *m_parentWidget;
+  ct::layouts::LLayout *m_layout;
 };
 }
 }

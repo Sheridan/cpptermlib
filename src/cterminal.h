@@ -14,12 +14,13 @@ public:
   const ct::primitives::CSize &size() const;
   void clear() const;
   void update();
-  void moveCursor(const ct::primitives::CCoordinate &coordinate);
 
 private:
   ct::primitives::CSize m_terminalSize;
+  unsigned int m_terminalColors;
 
   void mineTerminalSize();
+  void mineTerminalColors();
 };
 
 }

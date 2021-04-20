@@ -1,29 +1,30 @@
-#include "widgets/cwidget.h"
+#include "widgets/wwidget.h"
 #include "control/ccontrolcodes.h"
 #include "defines/liblog.h"
+#include "layouts/llayout.h"
 
 namespace ct
 {
 namespace widgets
 {
 
-WWidget::WWidget(const ct::primitives::CCoordinate &topLeft, const ct::primitives::CSize &size)
+WWidget::WWidget(const ct::primitives::CCoordinate &topLeft, const ct::primitives::CSize &size, ct::widgets::WWidget *m_parent)
   : m_topLeft(new ct::primitives::CCoordinate(topLeft)),
     m_topRight(nullptr),
     m_bottomLeft(nullptr),
     m_bottomRight(nullptr),
-    m_size(new ct::primitives::CSize(size))
-{
+    m_size(new ct::primitives::CSize(size)),
+    m_parentWidget(m_parent)
+{}
 
-}
 
-
-WWidget::WWidget()
+WWidget::WWidget(ct::widgets::WWidget *m_parent)
   : m_topLeft(nullptr),
     m_topRight(nullptr),
     m_bottomLeft(nullptr),
     m_bottomRight(nullptr),
-    m_size(nullptr)
+    m_size(nullptr),
+    m_parentWidget(m_parent)
 {}
 
 WWidget::~WWidget()
@@ -106,6 +107,16 @@ void WWidget::draw()
   ct::control::ccodes::reset.apply();
   ct::control::ccodes::cursorLoad.apply();
   ct::control::ccodes::cursorShow.apply();
+}
+
+void WWidget::setLayout(ct::layouts::LLayout *layout)
+{
+  m_layout = layout;
+}
+
+ct::primitives::CSize WWidget::clientCanvasSize()
+{
+  return *m_size;
 }
 
 }

@@ -1,4 +1,5 @@
 #include "csize.h"
+#include "defines/exceptions.h"
 
 namespace ct
 {
@@ -31,6 +32,32 @@ const ct::type::TSize CSize::height() const
 const ct::type::TSizeCount CSize::count() const
 {
   return m_width * m_height;
+}
+
+void CSize::srink(const ct::type::TSize &delta)
+{
+  CT_ASSERT(m_width  - delta <= 0, out_of_range, "Width is less or equal zero");
+  CT_ASSERT(m_height - delta <= 0, out_of_range, "Height is less or equal zero");
+  m_width  -= delta;
+  m_height -= delta;
+}
+
+void CSize::grow(const ct::type::TSize &delta)
+{
+  m_width  += delta;
+  m_height += delta;
+}
+
+CSize CSize::srinked(const ct::type::TSize &delta) const
+{
+  CT_ASSERT(m_width  - delta <= 0, out_of_range, "Width is less or equal zero");
+  CT_ASSERT(m_height - delta <= 0, out_of_range, "Height is less or equal zero");
+  return CSize(m_width - delta, m_height - delta);
+}
+
+CSize CSize::growed(const ct::type::TSize &delta) const
+{
+  return CSize(m_width + delta, m_height + delta);
 }
 
 
