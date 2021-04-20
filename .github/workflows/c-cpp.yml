@@ -1,0 +1,39 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      
+    - name: Install JSONCPP
+      run: sudo apt-get install libjsoncpp1 libjsoncpp-dev
+
+    - name: Build cpptoolslib
+      run: |
+        git clone https://github.com/Sheridan/cpptoolslib.git
+        cd cpptoolslib
+        make release
+        make install_release
+        cd ..
+      working-directory: /tmp
+
+    - name: Build loggerlib
+      run: |
+        git clone https://github.com/Sheridan/loggerlib.git
+        cd loggerlib
+        make release
+        make install_release
+        cd ..
+      working-directory: /tmp
+
+    - name: Build
+      run: |
+        make release
