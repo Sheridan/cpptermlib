@@ -8,7 +8,7 @@ include(cmake/CMakeCompiler.cmake)
 include(cmake/CMakeDebug.cmake)
 include(cmake/CMakeStrings.cmake)
 
-find_package(nlohmann_json 3.1.0 REQUIRED)
+find_package(nlohmann_json REQUIRED)
 
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
