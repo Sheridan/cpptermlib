@@ -55,8 +55,9 @@ jobs:
         make release
         make install_release
         cd ..
+
     - name: Build
-    - run: |
+      run: |
         make release
 
     - name: Perform CodeQL Analysis
