@@ -15,12 +15,14 @@ CApplication::CApplication(const std::string &applicationName)
   m_options     = new ct::tools::options::COptions();
   m_logger->applyOptions();
   m_theme       = new ct::tools::options::CTheme();
-  m_terminal    = new ct::CTerminal();
+  m_composer    = new ct::io::CComposer();
+  m_terminal    = new ct::tools::terminal::CTerminal();
 }
 
 CApplication::~CApplication()
 {
   delete m_terminal;
+  delete m_composer;
   delete m_theme;
   delete m_options;
   delete m_logger;
@@ -63,7 +65,12 @@ ct::tools::options::CTheme &CApplication::theme()
   return *m_theme;
 }
 
-ct::CTerminal *CApplication::terminal()
+ct::io::CComposer* CApplication::composer()
+{
+  return m_composer;
+}
+
+ct::tools::terminal::CTerminal *CApplication::terminal()
 {
   return m_terminal;
 }

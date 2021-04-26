@@ -2,8 +2,13 @@
 #include "primitives/csize.h"
 #include "defines/types.h"
 #include "primitives/ccoordinate.h"
+#include "tools/terminal/ccolorscount.h"
 
 namespace ct
+{
+namespace tools
+{
+namespace terminal
 {
 
 class CTerminal
@@ -15,12 +20,16 @@ public:
   void clear() const;
   void update();
 
+  ct::tools::terminal::CColorsCount *colorsCount();
+
+
 private:
   ct::primitives::CSize m_terminalSize;
-  unsigned int m_terminalColors;
+  ct::tools::terminal::CColorsCount *m_terminalColors;
 
   void mineTerminalSize();
-  void mineTerminalColors();
 };
 
+}
+}
 }

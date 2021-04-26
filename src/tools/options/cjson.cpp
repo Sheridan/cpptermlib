@@ -24,7 +24,7 @@ CJson::~CJson()
 
 Json::Value &CJson::operator[](const std::string &name)
 {
-  return m_root[name];
+  return at(name);
 }
 
 #define CT_PUSH_PATH_TO_QUEUE(_path) result.push(_path + "/" + suffix)
@@ -38,6 +38,11 @@ std::queue<std::string> CJson::optionsFilesList(const std::string &suffix)
   CT_PUSH_PATH_TO_QUEUE(std::string(CT_PROJECT_PATH) + "/configuration");
   #endif
   return result;
+}
+
+Json::Value& CJson::at(const std::string &name)
+{
+  return m_root[name];
 }
 
 void CJson::appendFile(const std::string &filename)

@@ -31,7 +31,16 @@ public:
   void setLayout(ct::layouts::LLayout *layout);
   virtual ct::primitives::CSize clientCanvasSize();
 
+  void show();
+  void hide();
+  void setVisible(const bool &visible = true);
+  const bool &visible() const;
+
 private:
+  void checkParent();
+
+  bool m_visible;
+
   ct::primitives::CCoordinate *m_topLeft;
   ct::primitives::CCoordinate *m_topRight;
   ct::primitives::CCoordinate *m_bottomLeft;

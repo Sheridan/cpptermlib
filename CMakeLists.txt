@@ -22,6 +22,7 @@ include_directories(${JSONCPP_INCLUDE_DIR}
                     src/tools
                     src/tools/logger
                     src/tools/options
+                    src/tools/terminal
                     src/widgets
                     )
 
@@ -29,16 +30,16 @@ set(CPPTERMLIB_HEADERS
     src/capplication.h
     src/control/ccontrolcode.h
     src/control/ccontrolcodes.h
-    src/control/ccontrolstring.h
     src/control/cdynamiccontrolcode.h
     src/control/cstaticcontrolcode.h
     src/cpptermlib.h
-    src/cterminal.h
+    src/tools/terminal/cterminal.h
+    src/tools/terminal/ccolorscount.h
     src/defines/liblog.h
     src/defines/log.h
     src/defines/terminal_codes.h
     src/defines/types.h
-    src/io/cbuffer.h
+    src/io/ccomposer.h
     src/layouts/llayout.h
     src/primitives/ccoordinate.h
     src/primitives/csize.h
@@ -55,12 +56,12 @@ set(CPPTERMLIB_SOURCES
     src/capplication.cpp
     src/control/ccontrolcode.cpp
     src/control/ccontrolcodes.cpp
-    src/control/ccontrolstring.cpp
     src/control/cdynamiccontrolcode.cpp
     src/control/cstaticcontrolcode.cpp
     src/cpptermlib.cpp
-    src/cterminal.cpp
-    src/io/cbuffer.cpp
+    src/tools/terminal/cterminal.cpp
+    src/tools/terminal/ccolorscount.cpp
+    src/io/ccomposer.cpp
     src/layouts/llayout.cpp
     src/primitives/ccoordinate.cpp
     src/primitives/csize.cpp

@@ -15,7 +15,9 @@ WWidget::WWidget(const ct::primitives::CCoordinate &topLeft, const ct::primitive
     m_bottomRight(nullptr),
     m_size(new ct::primitives::CSize(size)),
     m_parentWidget(m_parent)
-{}
+{
+  checkParent();
+}
 
 
 WWidget::WWidget(ct::widgets::WWidget *m_parent)
@@ -25,7 +27,9 @@ WWidget::WWidget(ct::widgets::WWidget *m_parent)
     m_bottomRight(nullptr),
     m_size(nullptr),
     m_parentWidget(m_parent)
-{}
+{
+  checkParent();
+}
 
 WWidget::~WWidget()
 {
@@ -96,7 +100,7 @@ void WWidget::draw()
   ct::control::ccodes::cursorSave.apply();
 
   ct::control::CControlCodes::cursorMove(topLeft()).apply();
-  ct::control::CControlCodes::font(4, 7).apply();
+  CT_THEME.style("default")->apply();
 
   for(ct::type::TCoordinate y = topLeft()->y(); y < bottomLeft()->y(); y++)
   {
@@ -117,6 +121,36 @@ void WWidget::setLayout(ct::layouts::LLayout *layout)
 ct::primitives::CSize WWidget::clientCanvasSize()
 {
   return *m_size;
+}
+
+void WWidget::show()
+{
+  setVisible(true);
+}
+
+void WWidget::hide()
+{
+  setVisible(false);
+}
+
+void WWidget::setVisible(const bool &visible)
+{
+  m_visible = visible;
+  draw();
+}
+
+const bool& WWidget::visible() const
+{
+  return m_visible;
+}
+
+void WWidget::checkParent()
+{
+  if(!m_parentWidget)
+  {
+    m_parentWidget = CT_COMPOSER;
+    CT_COMPOSER->addWidget(this);
+  }
 }
 
 }

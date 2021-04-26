@@ -7,4 +7,4 @@
 #define CT_LOG_NFO(_what) { CT_LIBLOG(info    , _what); }
 #define CT_LOG_WRN(_what) { CT_LIBLOG(warning , _what); }
 #define CT_LOG_ERR(_what) { CT_LIBLOG(error   , _what); }
-#define CT_LOG_CRY(_what) { CT_LIBLOG(critical, _what); }
+#define CT_LOG_CRY(_what) { CT_LIBLOG(critical, _what); throw std::runtime_error(ll::CLogString() << _what); }

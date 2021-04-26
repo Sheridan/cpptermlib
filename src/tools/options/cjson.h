@@ -18,6 +18,7 @@ public:
 
 protected:
   static std::queue<std::string> optionsFilesList(const std::string &suffix);
+  Json::Value &at(const std::string &name);
 
 private:
   Json::Value m_root;

@@ -15,12 +15,6 @@ class CControlCodes
 public:
   CControlCodes();
   virtual ~CControlCodes();
-  static const CDynamicControlCode font(const ct::type::TTerminalCode &foreground,
-                                        const ct::type::TTerminalCode &background,
-                                        const bool &bold          = false,
-                                        const bool &italic        = false,
-                                        const bool &underline     = false,
-                                        const bool &strikethrough = false);
   static const CDynamicControlCode cursorMove(const ct::primitives::CCoordinate *position);
   static const CDynamicControlCode cursorMove(const ct::type::TCoordinate &x, const ct::type::TCoordinate &y);
 };

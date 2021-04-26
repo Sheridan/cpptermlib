@@ -10,15 +10,21 @@
 
 namespace ct
 {
-
-CTerminal::CTerminal()
-  : m_terminalColors(16)
+namespace tools
 {
+namespace terminal
+{
+CTerminal::CTerminal()
+  : m_terminalColors(nullptr)
+{
+  m_terminalColors = new ct::tools::terminal::CColorsCount();
   update();
 }
 
 CTerminal::~CTerminal()
-{}
+{
+  delete m_terminalColors;
+}
 
 const ct::primitives::CSize &CTerminal::size() const
 {
@@ -33,8 +39,13 @@ void CTerminal::clear() const
 void CTerminal::update()
 {
   mineTerminalSize();
-  mineTerminalColors();
-  // clear();
+  clear();
+  CT_COMPOSER->resize(size());
+}
+
+ct::tools::terminal::CColorsCount* CTerminal::colorsCount()
+{
+  return m_terminalColors;
 }
 
 void CTerminal::mineTerminalSize()
@@ -49,12 +60,6 @@ void CTerminal::mineTerminalSize()
   CT_LOG_DBG("Terminal resized to " << m_terminalSize);
 }
 
-void CTerminal::mineTerminalColors()
-{
-//   char buffer[4];
-//   // std::string result = "";
-//   std::cin.read(buffer, 4);
-//   CT_LOG_DBG(buffer);
 }
-
+}
 }
