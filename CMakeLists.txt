@@ -33,8 +33,7 @@ set(CPPTERMLIB_HEADERS
     src/control/cdynamiccontrolcode.h
     src/control/cstaticcontrolcode.h
     src/cpptermlib.h
-    src/tools/terminal/cterminal.h
-    src/tools/terminal/ccolorscount.h
+    src/defines/exceptions.h
     src/defines/liblog.h
     src/defines/log.h
     src/defines/terminal_codes.h
@@ -47,9 +46,10 @@ set(CPPTERMLIB_HEADERS
     src/tools/options/cjson.h
     src/tools/options/coptions.h
     src/tools/options/ctheme.h
-    src/widgets/wwidget.h
+    src/tools/terminal/ccolorscount.h
+    src/tools/terminal/cterminal.h
     src/widgets/wpanel.h
-    src/defines/exceptions.h
+    src/widgets/wwidget.h
     )
 
 set(CPPTERMLIB_SOURCES
@@ -59,8 +59,6 @@ set(CPPTERMLIB_SOURCES
     src/control/cdynamiccontrolcode.cpp
     src/control/cstaticcontrolcode.cpp
     src/cpptermlib.cpp
-    src/tools/terminal/cterminal.cpp
-    src/tools/terminal/ccolorscount.cpp
     src/io/ccomposer.cpp
     src/layouts/llayout.cpp
     src/primitives/ccoordinate.cpp
@@ -69,8 +67,10 @@ set(CPPTERMLIB_SOURCES
     src/tools/options/cjson.cpp
     src/tools/options/coptions.cpp
     src/tools/options/ctheme.cpp
-    src/widgets/wwidget.cpp
+    src/tools/terminal/ccolorscount.cpp
+    src/tools/terminal/cterminal.cpp
     src/widgets/wpanel.cpp
+    src/widgets/wwidget.cpp
     )
 
 set(CPPTERMLIB_LIBRARYES cpptools
