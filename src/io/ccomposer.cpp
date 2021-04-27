@@ -12,14 +12,14 @@ CComposer::CComposer() : ct::widgets::WWidget(this)
 CComposer::~CComposer()
 {}
 
-void CComposer::addWidget(ct::widgets::WWidget *widget)
+void CComposer::addWindow(ct::widgets::WWindow *window)
 {
-  m_widgets.push_back(widget);
+  m_windows.push_back(window);
 }
 
-void CComposer::removeWidget(ct::widgets::WWidget *widget)
+void CComposer::removeWindow(ct::widgets::WWindow *window)
 {
-  m_widgets.erase(std::remove(m_widgets.begin(), m_widgets.end(), widget), m_widgets.end());
+  m_windows.erase(std::remove(m_windows.begin(), m_windows.end(), window), m_windows.end());
 }
 
 

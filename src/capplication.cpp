@@ -1,5 +1,6 @@
 #include "capplication.h"
 #include "defines/liblog.h"
+#include "control/ccontrolcodes.h"
 
 namespace ct
 {
@@ -10,6 +11,8 @@ CApplication::CApplication(const std::string &applicationName)
   : m_applicationName(applicationName)
 {
   _instance = this;
+  ct::control::ccodes::cursorSave.apply();
+  ct::control::ccodes::cursorHide.apply();
   m_currentUser = new cppt::user::CUser();
   m_logger      = new ct::tools::logger::CLogger();
   m_options     = new ct::tools::options::COptions();
@@ -27,6 +30,8 @@ CApplication::~CApplication()
   delete m_options;
   delete m_logger;
   delete m_currentUser;
+  ct::control::ccodes::cursorLoad.apply();
+  ct::control::ccodes::cursorShow.apply();
 }
 
 const std::string &CApplication::applicationName() const

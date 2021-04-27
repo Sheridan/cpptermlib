@@ -34,6 +34,7 @@ set(CPPTERMLIB_HEADERS
     src/control/cstaticcontrolcode.h
     src/cpptermlib.h
     src/defines/exceptions.h
+    src/defines/graphics.h
     src/defines/liblog.h
     src/defines/log.h
     src/defines/terminal_codes.h
@@ -50,6 +51,7 @@ set(CPPTERMLIB_HEADERS
     src/tools/terminal/cterminal.h
     src/widgets/wpanel.h
     src/widgets/wwidget.h
+    src/widgets/wwindow.h
     )
 
 set(CPPTERMLIB_SOURCES
@@ -71,6 +73,7 @@ set(CPPTERMLIB_SOURCES
     src/tools/terminal/cterminal.cpp
     src/widgets/wpanel.cpp
     src/widgets/wwidget.cpp
+    src/widgets/wwindow.cpp
     )
 
 set(CPPTERMLIB_LIBRARYES cpptools

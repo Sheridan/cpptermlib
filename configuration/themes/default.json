@@ -38,6 +38,17 @@
       "italic": false,
       "underline": false,
       "strikethrough": false
+    },
+    "window_border":
+    {
+      "parent": "default",
+      "foreground": "blue"
+    },
+    "window_title":
+    {
+      "parent": "default",
+      "foreground": "purple",
+      "bold": true
     }
   }
 }

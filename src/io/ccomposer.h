@@ -1,6 +1,6 @@
 #pragma once
 #include <vector>
-#include "widgets/wwidget.h"
+#include "widgets/wwindow.h"
 
 namespace ct
 {
@@ -12,11 +12,11 @@ class CComposer : public ct::widgets::WWidget
 public:
   CComposer();
   virtual ~CComposer();
-  void addWidget(ct::widgets::WWidget *widget);
-  void removeWidget(ct::widgets::WWidget *widget);
+  void addWindow(ct::widgets::WWindow *window);
+  void removeWindow(ct::widgets::WWindow *window);
 
 private:
-  std::vector<ct::widgets::WWidget *> m_widgets;
+  std::vector<ct::widgets::WWindow *> m_windows;
 };
 
 }

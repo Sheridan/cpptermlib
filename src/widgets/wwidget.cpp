@@ -1,6 +1,7 @@
 #include "widgets/wwidget.h"
 #include "control/ccontrolcodes.h"
 #include "defines/liblog.h"
+#include "defines/graphics.h"
 #include "layouts/llayout.h"
 
 namespace ct
@@ -15,9 +16,7 @@ WWidget::WWidget(const ct::primitives::CCoordinate &topLeft, const ct::primitive
     m_bottomRight(nullptr),
     m_size(new ct::primitives::CSize(size)),
     m_parentWidget(m_parent)
-{
-  checkParent();
-}
+{}
 
 
 WWidget::WWidget(ct::widgets::WWidget *m_parent)
@@ -27,9 +26,7 @@ WWidget::WWidget(ct::widgets::WWidget *m_parent)
     m_bottomRight(nullptr),
     m_size(nullptr),
     m_parentWidget(m_parent)
-{
-  checkParent();
-}
+{}
 
 WWidget::~WWidget()
 {
@@ -96,21 +93,16 @@ void WWidget::resize(const ct::primitives::CSize &size)
 
 void WWidget::draw()
 {
-  ct::control::ccodes::cursorHide.apply();
-  ct::control::ccodes::cursorSave.apply();
+  // ct::control::CControlCodes::cursorMove(topLeft()).apply();
+  // CT_THEME.style("default")->apply();
 
-  ct::control::CControlCodes::cursorMove(topLeft()).apply();
-  CT_THEME.style("default")->apply();
+  // for(ct::type::TCoordinate y = topLeft()->y(); y < bottomLeft()->y(); y++)
+  // {
+  //   CPT_OUT << CPT_STRING(size()->width(), CT_G_SPACE);
+  //   ct::control::CControlCodes::cursorMove(topLeft()->x(), y).apply();
+  // }
 
-  for(ct::type::TCoordinate y = topLeft()->y(); y < bottomLeft()->y(); y++)
-  {
-    CPT_OUT << CPT_STRING(size()->width(), ' ');
-    ct::control::CControlCodes::cursorMove(topLeft()->x(), y).apply();
-  }
-
-  ct::control::ccodes::reset.apply();
-  ct::control::ccodes::cursorLoad.apply();
-  ct::control::ccodes::cursorShow.apply();
+  // ct::control::ccodes::reset.apply();
 }
 
 void WWidget::setLayout(ct::layouts::LLayout *layout)
@@ -144,14 +136,7 @@ const bool& WWidget::visible() const
   return m_visible;
 }
 
-void WWidget::checkParent()
-{
-  if(!m_parentWidget)
-  {
-    m_parentWidget = CT_COMPOSER;
-    CT_COMPOSER->addWidget(this);
-  }
-}
+
 
 }
 }

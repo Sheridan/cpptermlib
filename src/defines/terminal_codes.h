@@ -13,8 +13,6 @@
 #define CT_24B_COLOR_FOREGROUND(_r,_g,_b) CT_24B_COLOR_(38,_r,_g,_b)
 #define CT_24B_COLOR_BACKGROUND(_r,_g,_b) CT_24B_COLOR_(48,_r,_g,_b)
 
-
-
 #define CT_RESET         CT_ESC "0m"
 #define CT_BOLD          CT_ESC "1m"
 #define CT_ITALIC        CT_ESC "3m"
