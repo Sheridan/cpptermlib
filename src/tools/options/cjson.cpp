@@ -1,7 +1,8 @@
 #include "tools/options/cjson.h"
+
 #include "defines/liblog.h"
-#include <json/json.h>
 #include <cppt/fs.h>
+#include <json/json.h>
 
 namespace ct
 {

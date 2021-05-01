@@ -1,6 +1,7 @@
 #include "clogger.h"
-#include "defines/liblog.h"
+
 #include "capplication.h"
+#include "defines/liblog.h"
 
 namespace ct
 {

@@ -30,7 +30,7 @@
 					"request": "launch",
 					"program": "/usr/bin/make",
 					"args": [
-						"debug"
+						"run_test_debug"
 					],
 					"cwd": "${workspaceFolder}",
 					"environment": [],

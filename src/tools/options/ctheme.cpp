@@ -1,8 +1,9 @@
 #include "tools/options/ctheme.h"
+
+#include "capplication.h"
 #include "defines/liblog.h"
 #include "defines/terminal_codes.h"
 #include "defines/types.h"
-#include "capplication.h"
 
 namespace ct
 {

@@ -1,6 +1,9 @@
 #include "capplication.h"
-#include "defines/liblog.h"
+
 #include "control/ccontrolcodes.h"
+#include "defines/liblog.h"
+#include <chrono>
+#include <thread>
 
 namespace ct
 {
@@ -8,7 +11,8 @@ namespace ct
 static CApplication *_instance = nullptr;
 
 CApplication::CApplication(const std::string &applicationName)
-  : m_applicationName(applicationName)
+  : m_active(false),
+    m_applicationName(applicationName)
 {
   _instance = this;
   ct::control::ccodes::cursorSave.apply();
@@ -55,34 +59,31 @@ bool CApplication::active()
   return _instance != nullptr;
 }
 
-ct::tools::logger::CLogger *CApplication::logger()
+void CApplication::run()
 {
-  return m_logger;
+  m_active = true;
+  while(m_active)
+  {
+    updateUi();
+    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+  }
 }
 
-ct::tools::options::COptions &CApplication::options()
+void CApplication::quit()
 {
-  return *m_options;
+  m_active = false;
 }
 
-ct::tools::options::CTheme &CApplication::theme()
+void CApplication::updateUi()
 {
-  return *m_theme;
+  CT_COMPOSER->updateWindows();
 }
 
-ct::io::CComposer* CApplication::composer()
-{
-  return m_composer;
-}
-
-ct::tools::terminal::CTerminal *CApplication::terminal()
-{
-  return m_terminal;
-}
-
-const cppt::user::CUser *CApplication::currentUser() const
-{
-  return m_currentUser;
-}
+ct::tools::logger::CLogger     *CApplication::logger()            { return m_logger; }
+ct::tools::options::COptions   &CApplication::options()           { return *m_options; }
+ct::tools::options::CTheme     &CApplication::theme()             {  return *m_theme; }
+ct::io::CComposer              *CApplication::composer()          { return m_composer; }
+ct::tools::terminal::CTerminal *CApplication::terminal()          { return m_terminal; }
+const cppt::user::CUser        *CApplication::currentUser() const { return m_currentUser; }
 
 }

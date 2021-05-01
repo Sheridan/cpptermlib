@@ -1,9 +1,8 @@
-
 #pragma once
 #include "control/ccontrolcode.h"
-#include "defines/terminal_codes.h"
-#include "control/cstaticcontrolcode.h"
 #include "control/cdynamiccontrolcode.h"
+#include "control/cstaticcontrolcode.h"
+#include "defines/terminal_codes.h"
 #include "primitives/ccoordinate.h"
 
 namespace ct

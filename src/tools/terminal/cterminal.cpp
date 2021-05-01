@@ -1,12 +1,12 @@
 #include "cterminal.h"
-#include "terminal_codes.h"
+
 #include "control/ccontrolcodes.h"
 #include "defines/liblog.h"
-
-#include <sys/ioctl.h>
-#include <string.h>
-#include <stdexcept>
+#include "terminal_codes.h"
 #include <iostream>
+#include <stdexcept>
+#include <string.h>
+#include <sys/ioctl.h>
 
 namespace ct
 {

@@ -1,7 +1,7 @@
 #pragma once
-#include "primitives/csize.h"
 #include "defines/types.h"
 #include "primitives/ccoordinate.h"
+#include "primitives/csize.h"
 #include "tools/terminal/ccolorscount.h"
 
 namespace ct

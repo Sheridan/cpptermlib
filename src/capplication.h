@@ -1,12 +1,12 @@
 #pragma once
 
-#include <string>
-#include "tools/terminal/cterminal.h"
+#include "cppt/user.h"
+#include "io/ccomposer.h"
 #include "tools/logger/clogger.h"
 #include "tools/options/coptions.h"
 #include "tools/options/ctheme.h"
-#include "cppt/user.h"
-#include "io/ccomposer.h"
+#include "tools/terminal/cterminal.h"
+#include <string>
 
 namespace ct
 {
@@ -20,6 +20,10 @@ public:
   static CApplication *instance();
   static bool active();
 
+  void run();
+  void quit();
+  void updateUi();
+
   ct::tools::logger::CLogger     *logger();
   ct::tools::options::COptions   &options();
   ct::tools::options::CTheme     &theme();
@@ -28,6 +32,7 @@ public:
   const cppt::user::CUser        *currentUser() const;
 
 private:
+  bool                            m_active;
   std::string                     m_applicationName;
   ct::tools::logger::CLogger     *m_logger;
   ct::tools::options::COptions   *m_options;

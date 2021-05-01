@@ -1,7 +1,7 @@
 {
   "colors":
   {
-    // Indexes: https://jonasjacek.github.io/colorsu
+    // Indexes: https://jonasjacek.github.io/colors
     "aqua":    { "16": 14, "256": 14, "truecolor": [0  , 255, 255] },
     "black":   { "16": 0 , "256": 0 , "truecolor": [0  , 0  , 0  ] },
     "blue":    { "16": 12, "256": 12, "truecolor": [0  , 0  , 255] },
@@ -33,7 +33,7 @@
     "background":
     {
       "foreground": "white",
-      "background": "black",
+      "background": "navy",
       "bold": false,
       "italic": false,
       "underline": false,

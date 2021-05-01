@@ -1,8 +1,8 @@
 #pragma once
-#include <string>
+#include "capplication.h"
+#include "tools/logger/clogger.h"
 #include <stdexcept>
-#include <capplication.h>
-#include <tools/logger/clogger.h>
+#include <string>
 
 #define CT_STR_HELPER(x) #x
 #define CT_STR(x) CT_STR_HELPER(x)

@@ -1,7 +1,8 @@
 #pragma once
-#include <map>
-#include "tools/options/cjson.h"
+
 #include "control/cdynamiccontrolcode.h"
+#include "tools/options/cjson.h"
+#include <map>
 
 namespace ct
 {

@@ -52,6 +52,7 @@ set(CPPTERMLIB_HEADERS
     src/widgets/wpanel.h
     src/widgets/wwidget.h
     src/widgets/wwindow.h
+    src/widgets/wobject.h
     )
 
 set(CPPTERMLIB_SOURCES
@@ -74,6 +75,7 @@ set(CPPTERMLIB_SOURCES
     src/widgets/wpanel.cpp
     src/widgets/wwidget.cpp
     src/widgets/wwindow.cpp
+    src/widgets/wobject.cpp
     )
 
 set(CPPTERMLIB_LIBRARYES cpptools

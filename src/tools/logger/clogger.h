@@ -1,6 +1,7 @@
 #pragma once
 #include "loggerlib/loggerlib.h"
 #include "primitives/csize.h"
+#include "primitives/ccoordinate.h"
 
 namespace ct
 {
@@ -21,6 +22,11 @@ public:
   friend CLogger &operator<<(CLogger &logger, const ct::primitives::CSize &value)
   {
     logger.write(ll::CLogString() << "(" << value.width() << "," << value.height() << ")");
+    return logger;
+  }
+  friend CLogger &operator<<(CLogger &logger, const ct::primitives::CCoordinate &value)
+  {
+    logger.write(ll::CLogString() << "(" << value.x() << "," << value.y() << ")");
     return logger;
   }
 };

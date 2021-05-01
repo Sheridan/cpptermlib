@@ -13,7 +13,7 @@ public:
   constexpr CControlCode(const T code)
     : m_code(code) {}
 
-  const T operator()() const
+  const T code() const
   {
     return m_code;
   }

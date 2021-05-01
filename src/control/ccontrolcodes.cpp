@@ -19,6 +19,7 @@ const CDynamicControlCode CControlCodes::cursorMove(const ct::primitives::CCoord
 
 const CDynamicControlCode CControlCodes::cursorMove(const ct::type::TCoordinate &x, const ct::type::TCoordinate &y)
 {
+  CT_LOG_DBG("cursor move to: " << x << ":" << y)
   return CDynamicControlCode(CT_CURSOR_MOVE(x, y));
 }
 
